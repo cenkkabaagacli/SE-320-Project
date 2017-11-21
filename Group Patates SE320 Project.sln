@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Group Patates SE320 Project.Plugins", "Group Patates SE320 Project.Plugins.csproj", "{C32ACBCB-5D34-45BD-233E-EFBC1B8C0523}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Group Patates SE320 Project", "Group Patates SE320 Project.csproj", "{0E9E6A0F-ED4E-F57F-BAB5-ED9F085C2C74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Group Patates SE320 Project.Editor.Plugins", "Group Patates SE320 Project.Editor.Plugins.csproj", "{A403CCAE-500B-0C26-A4E5-B45BFAFF1216}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C32ACBCB-5D34-45BD-233E-EFBC1B8C0523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32ACBCB-5D34-45BD-233E-EFBC1B8C0523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32ACBCB-5D34-45BD-233E-EFBC1B8C0523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32ACBCB-5D34-45BD-233E-EFBC1B8C0523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E9E6A0F-ED4E-F57F-BAB5-ED9F085C2C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E9E6A0F-ED4E-F57F-BAB5-ED9F085C2C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E9E6A0F-ED4E-F57F-BAB5-ED9F085C2C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E9E6A0F-ED4E-F57F-BAB5-ED9F085C2C74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A403CCAE-500B-0C26-A4E5-B45BFAFF1216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A403CCAE-500B-0C26-A4E5-B45BFAFF1216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A403CCAE-500B-0C26-A4E5-B45BFAFF1216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A403CCAE-500B-0C26-A4E5-B45BFAFF1216}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
