@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
-    y: 43
+    x: 8
+    y: 51
     width: 1366
     height: 685
   m_ShowMode: 4
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 392}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 10
+  controlID: 34
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -90,8 +90,8 @@ MonoBehaviour:
     y: 364
     width: 528
     height: 271
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 392}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 44
+  controlID: 33
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 342}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 45
+  controlID: 10
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -253,8 +253,8 @@ MonoBehaviour:
     y: 0
     width: 558
     height: 357
-  m_MinSize: {x: 104, y: 121}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -360,8 +360,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 530
-    y: 92
+    x: 538
+    y: 100
     width: 554
     height: 336
   m_MaximizeOnPlay: 0
@@ -436,8 +436,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 92
+    x: 8
+    y: 100
     width: 526
     height: 343
   m_SceneLighting: 1
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.09023119, y: -0.7973382, z: 0.123203084, w: -0.58389294}
     speed: 2
-    m_Value: {x: -0.090231195, y: -0.79733825, z: 0.12320309, w: -0.583893}
+    m_Value: {x: 0.090231195, y: 0.79733825, z: -0.123203084, w: 0.58389294}
   m_Size:
     m_Target: 22
     speed: 2
@@ -511,29 +511,29 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 456
+    x: 8
+    y: 464
     width: 526
     height: 250
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b22e0000
-    m_LastClickedID: 11954
-    m_ExpandedIDs: 78f5ffffa6fbffff00000000
+    m_SelectedIDs: d6330000
+    m_LastClickedID: 13270
+    m_ExpandedIDs: 7afaffff00000000d6330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Slider
-      m_OriginalName: Slider
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -272872
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
@@ -564,8 +564,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 530
-    y: 449
+    x: 538
+    y: 457
     width: 554
     height: 257
   m_SearchFilter:
@@ -580,18 +580,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes/firstLevel
+    - Assets/Scripts
   m_ViewMode: 0
   m_StartGridSize: 53
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: "C:\\Users\\cenk9\\Desktop\\Yaz\u0131l\u0131m\\SE320 Project"
+  m_LastProjectPath: C:\Users\hamza\Documents\GitHub\SE-320-Project
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: dc250000
     m_LastClickedID: 9692
-    m_ExpandedIDs: 00000000a6270000be2900006e2a0000de2b0000122c0000982c0000c02d0000
+    m_ExpandedIDs: 00000000122b0000242d00003a2f00008a31000038330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,21 +619,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a6270000be2900006e2a0000122c0000c02d0000
+    m_ExpandedIDs: 00000000122b0000242d0000fa2e00003a2f00008a31000038330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: playerMovement
+      m_OriginalName: playerMovement
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 14188
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
@@ -696,8 +696,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 1088
-    y: 92
+    x: 1096
+    y: 100
     width: 278
     height: 614
   m_ScrollPosition: {x: 0, y: 0}
