@@ -15,7 +15,7 @@ public class ShowAnimation : MonoBehaviour {
 	void Start () {
 		AddAnim ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		
@@ -24,10 +24,15 @@ public class ShowAnimation : MonoBehaviour {
 	 void OnGUI(){
 		if (GUI.Button(new Rect(10, 210, 90, 50), "NestAnim"))
 		{
-			CurAnimClip ++;
-			if(CurAnimClip > clips.Length -1)
-				CurAnimClip = 0;
-			PlayAnim ();
+			//CurAnimClip ++;
+			//if(CurAnimClip > clips.Length -1)
+			//	CurAnimClip = 0;
+			CurAnimClip = 0;//3 walk,4 idle,2 death,1 skill,0 attack
+			Debug.Log (CurAnimClip);
+			AinObjs [i].GetComponent<Animation>().Play (clips [CurAnimClip].name);
+			CurAnimName = clips [CurAnimClip].name;
+			//CurAnimClip = 4;
+			//PlayAnim ();
 		}
 		if (GUI.Button(new Rect(10, 260, 90, 50), "On One Anim"))
 		{
@@ -50,24 +55,24 @@ public class ShowAnimation : MonoBehaviour {
 	public GameObject[] Chrs;
 	public int i =0;
 	private int curi =0;
-	void ChooseChar ()
-	{
-		CurAinObjCount = i;
-		AinObjs [CurAinObjCount].SetActive(false);
-		i +=1;
-		if(i == AinObjs.Length)
-		{
-			i =0;
-		}
-		AinObjs [i].SetActive(true);
-		AddAnim ();
-	}
+//	void ChooseChar ()
+//	{
+//		CurAinObjCount = i;
+//		AinObjs [CurAinObjCount].SetActive(false);
+//		i +=1;
+//		if(i == AinObjs.Length)
+//		{
+//			i =0;
+//		}
+//		AinObjs [i].SetActive(true);
+//		AddAnim ();
+//	}
 
-	
+
 	void AddAnim () 
 	{
 		ain = AinObjs [i].GetComponent<Animation>();
-		clips = AnimationUtility.GetAnimationClips(ain);
+		clips = AnimationUtility.GetAnimationClips (ain);
 	}
 	void PlayAnim ()
 	{
