@@ -54,9 +54,7 @@
      <Compile Include="Assets\AShopExport\ShowAnimation.cs" />
      <Compile Include="Assets\AShopExport\UIObjRotation.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
-     <Compile Include="Assets\Scripts\GoblinFeatures.cs" />
      <Compile Include="Assets\Scripts\MovingTest.cs" />
-     <Compile Include="Assets\Scripts\playerMovement.cs" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\LowPoly Fantasy Monsters Pack Ver1.0_Demo\READ ME FIRST!!!\character setup guide link.txt" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />

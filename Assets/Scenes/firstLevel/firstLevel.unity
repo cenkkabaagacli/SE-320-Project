@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.447712, g: 0.4976896, b: 0.57539827, a: 1}
+  m_IndirectSpecularColor: {r: 0.44771177, g: 0.49768907, b: 0.5753974, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -285,17 +285,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &188661435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 188661433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cf0744a433c8d42bbaea5ffc4c4a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &188661436 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400080, guid: 089964c7cb0d1f74ebdb3a267fbc0763, type: 2}
@@ -876,9 +865,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1060985475}
-  m_LocalRotation: {x: -0.23998334, y: 0.021261185, z: -0.0052587762, w: -0.97053}
-  m_LocalPosition: {x: 0.14970268, y: 5.7845073, z: -5.6574645}
-  m_LocalScale: {x: 0.7142858, y: 0.7142857, z: 0.71428573}
+  m_LocalRotation: {x: -0.23998332, y: 0.021261187, z: -0.0052587823, w: -0.9705299}
+  m_LocalPosition: {x: 0.14970234, y: 5.7845078, z: -5.6574645}
+  m_LocalScale: {x: 0.7142856, y: 0.7142856, z: 0.71428573}
   m_Children: []
   m_Father: {fileID: 188661436}
   m_RootOrder: 7
