@@ -228,6 +228,7 @@
     <Compile Include="Assets\AShopExport\ShowAnimation.cs" />
     <Compile Include="Assets\AShopExport\UIObjRotation.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
+    <Compile Include="Assets\Scripts\ExitScript.cs" />
     <Compile Include="Assets\Scripts\GoblinFeatures.cs" />
     <Compile Include="Assets\Scripts\MovingTest.cs" />
   </ItemGroup>
