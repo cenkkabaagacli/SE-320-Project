@@ -229,6 +229,7 @@
     <Compile Include="Assets\AShopExport\UIObjRotation.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\ChangeSceneToLevel1.cs" />
+    <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\MovingTest.cs" />
   </ItemGroup>
   <ItemGroup>
