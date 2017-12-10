@@ -7,8 +7,6 @@ public class MovingTest : MonoBehaviour
 {
 	private int curAnimClip;
     NavMeshAgent agent;
-    public GameObject goTerrain;
-
 	private Animation ain;
 	public AnimationClip [] clips;
     // Use this for initialization
@@ -26,31 +24,13 @@ public class MovingTest : MonoBehaviour
     void Update()
     {
 
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        /*if (Input.GetMouseButton(1))
-        {
-            if (goTerrain.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity))
-            {
-                agent.destination = hit.point;
-                agent.isStopped = false;
-				curAnimClip = 3;
-				gameObject.GetComponent<Animation> ().Play (clips [curAnimClip].name);
-            }
-
-
-        }
-		if (gameObject.transform.position == agent.destination) {
-			curAnimClip = 4;
-			gameObject.GetComponent<Animation> ().Play (clips [curAnimClip].name);
-		}*/
+        
 		float rightSpeed = Input.GetAxis ("Horizontal");
 
 		float upSpeed = Input.GetAxis ("Vertical");
 
-		float maxVerticalSpeed = 5;
-		float maxHorizontalSpeed = 5;
+		float maxVerticalSpeed = 7;
+		float maxHorizontalSpeed = 7;
 
 		transform.Translate (maxHorizontalSpeed * rightSpeed * Time.deltaTime,0,maxVerticalSpeed * upSpeed * Time.deltaTime);
 		if (rightSpeed != 0.0f || upSpeed != 0.0f) {
@@ -68,6 +48,43 @@ public class MovingTest : MonoBehaviour
 	{
 		ain = gameObject.GetComponent<Animation>();
 		clips = UnityEditor.AnimationUtility.GetAnimationClips (ain);
+	}
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.GetComponent<NavMeshAgent> () != null) {
+			other.gameObject.GetComponent<NavMeshAgent> ().destination = transform.position;
+
+		}
+	}
+	void OnTriggerStay(Collider other){
+		
+		other.gameObject.GetComponent<NavMeshAgent>().destination = transform.position;
+
+		if (other.gameObject.GetComponent<WolfScript> () != null) {
+			other.gameObject.GetComponent<WolfScript> ().setisMoving (true);
+			if (other.gameObject.GetComponent<WolfScript> ().getisattacking ()) {
+				other.gameObject.transform.LookAt (gameObject.transform);
+			}
+		}
+
+		if (other.gameObject.GetComponent<GoblinScript> () != null) {
+			other.gameObject.GetComponent<GoblinScript> ().setisMoving (true);
+			if (other.gameObject.GetComponent<GoblinScript> ().getisattacking ()) {
+				other.gameObject.transform.LookAt (gameObject.transform);
+			}
+		}
+
+		if (other.gameObject.GetComponent<HobgoblinScript> () != null) {
+			other.gameObject.GetComponent<HobgoblinScript> ().setisMoving (true);
+			if (other.gameObject.GetComponent<HobgoblinScript> ().getisattacking ()) {
+				other.gameObject.transform.LookAt (gameObject.transform);			}
+		}
+
+		if (other.gameObject.GetComponent<TrollScript> () != null) {
+			other.gameObject.GetComponent<TrollScript> ().setisMoving (true);
+			if (other.gameObject.GetComponent<TrollScript> ().getisattacking ()) {
+				other.gameObject.transform.LookAt (gameObject.transform);
+			}
+		}
 	}
 }
 
