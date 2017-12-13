@@ -344,15 +344,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ChangeSceenToLevel1
+      - m_Target: {fileID: 531602720}
+        m_MethodName: ChangeSceen
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: firstLevel
+          m_StringArgument: Main Menu
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -390,23 +390,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 136367931}
---- !u!1 &174374359 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100080, guid: 089964c7cb0d1f74ebdb3a267fbc0763, type: 2}
-  m_PrefabInternal: {fileID: 1334866584}
---- !u!114 &174374366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 174374359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9690820ced28e284b8a46677790c9e99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharAtt: {fileID: 1916832289}
-  Pause: {fileID: 667371231}
 --- !u!1 &307809713
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +611,8 @@ GameObject:
   - component: {fileID: 531602718}
   - component: {fileID: 531602717}
   - component: {fileID: 531602716}
+  - component: {fileID: 531602720}
+  - component: {fileID: 531602719}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -695,7 +680,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 531602717}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 531602720}
+        m_MethodName: PauseMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &531602717
@@ -733,6 +729,30 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 531602714}
+--- !u!114 &531602719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 531602714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4203b01145c8b1242b8ca6db4ca76f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &531602720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 531602714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9690820ced28e284b8a46677790c9e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharAtt: {fileID: 1916832289}
+  Pause: {fileID: 667371231}
 --- !u!1 &624662147
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +835,7 @@ GameObject:
   - component: {fileID: 667371234}
   - component: {fileID: 667371233}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -960,8 +980,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 712482388}
-        m_MethodName: SubmitSliderSetting
+      - m_Target: {fileID: 712482385}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

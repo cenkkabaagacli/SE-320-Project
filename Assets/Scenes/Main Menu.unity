@@ -189,7 +189,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 407105451}
-        m_MethodName: ChangeSceenToLevel1
+        m_MethodName: ChangeSceen
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -323,9 +323,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 407105446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4203b01145c8b1242b8ca6db4ca76f2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9690820ced28e284b8a46677790c9e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharAtt: {fileID: 0}
+  Pause: {fileID: 0}
 --- !u!1 &538990944
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +944,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1809218232}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 407105451}
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1809218232

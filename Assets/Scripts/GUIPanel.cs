@@ -9,18 +9,26 @@ public class GUIPanel : MonoBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public GameObject CharAtt;
     public GameObject Pause;
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void Update ()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        MenusWithKeys();
+    }
+
+    // Activate/Deactivate by clicking pause button
+    public void PauseMenu()
+    {
+        Pause.SetActive(!Pause.activeInHierarchy);
+    }
+
+    // 'C' for CharacterAttributes, 'Esc' for PauseMenu
+    private void MenusWithKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
         {
             CharAtt.SetActive(!CharAtt.activeInHierarchy);
         }
@@ -30,4 +38,17 @@ public class GUIPanel : MonoBehaviour {
             Pause.SetActive(!Pause.activeInHierarchy);
         }
     }
+
+    // Use to change scene
+    public void ChangeSceen(string scenename)
+    {
+        Application.LoadLevel(scenename);
+    }
+
+    // Use to exit game
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
 }

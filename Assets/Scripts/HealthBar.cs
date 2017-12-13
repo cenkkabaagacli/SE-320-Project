@@ -14,7 +14,7 @@ public class HealthBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        mySlider.value = 0.15f;
+        mySlider.value = 0.43f;
         //Debug.Log(mySlider.value);
 	}
 }
