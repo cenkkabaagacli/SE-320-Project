@@ -283,8 +283,6 @@
     <Compile Include="Assets\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\LowPoly Fantasy Monsters Pack Ver1.0_Demo\READ ME FIRST!!!\character setup guide link.txt" />
-    <None Include="Assets\LowPoly Fantasy Monsters Pack Ver1.0_Demo\READ ME FIRST!!!\read me.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

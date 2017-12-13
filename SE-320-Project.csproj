@@ -229,12 +229,15 @@
     <Compile Include="Assets\AShopExport\UIObjRotation.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\ChangeSceneToLevel1.cs" />
+    <Compile Include="Assets\Scripts\GoblinScript.cs" />
+    <Compile Include="Assets\Scripts\GUIPanel.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\HobgoblinScript.cs" />
     <Compile Include="Assets\Scripts\MovingTest.cs" />
+    <Compile Include="Assets\Scripts\TrollScript.cs" />
+    <Compile Include="Assets\Scripts\WolfScript.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\LowPoly Fantasy Monsters Pack Ver1.0_Demo\READ ME FIRST!!!\character setup guide link.txt" />
-    <None Include="Assets\LowPoly Fantasy Monsters Pack Ver1.0_Demo\READ ME FIRST!!!\read me.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
