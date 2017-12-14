@@ -1,62 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.AI;
 
-public class MovingTest : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
 	private int curAnimClip;
-    //NavMeshAgent agent;
-	//private Animation ain;
-	//public AnimationClip [] clips;
+	public float maxVerticalSpeed = 7;
+	public float maxHorizontalSpeed = 7;
+	private bool isattacking;
     // Use this for initialization
     void Start()
     {
-		//AddAnim ();
+		isattacking = false;
     }
 
     void Awake()
     {
-        //agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        
 		float rightSpeed = Input.GetAxis ("Horizontal");
 
 		float upSpeed = Input.GetAxis ("Vertical");
 
-		float maxVerticalSpeed = 7;
-		float maxHorizontalSpeed = 7;
-
 		transform.Translate (maxHorizontalSpeed * rightSpeed * Time.deltaTime,0,maxVerticalSpeed * upSpeed * Time.deltaTime);
-		if (rightSpeed != 0.0f || upSpeed != 0.0f) {
-			gameObject.GetComponent<Animation> ().Play ("walk");
-			//curAnimClip = 3;
-			//gameObject.GetComponent<Animation> ().Play (clips [curAnimClip].name);
-		} else {
-			gameObject.GetComponent<Animation> ().Play ("free");
-			//curAnimClip = 4;
-			//gameObject.GetComponent<Animation> ().Play (clips [curAnimClip].name);
+
+		if (!gameObject.GetComponent<Animation> ().IsPlaying("attack")) {
+			if (rightSpeed != 0.0f || upSpeed != 0.0f) {
+				gameObject.GetComponent<Animation> ().Play ("walk");
+			} else {
+				gameObject.GetComponent<Animation> ().Play ("free");
+			}
 		}
+
+		if (gameObject.GetComponent<Animation> () ["attack"].time * gameObject.GetComponent<Animation> () ["attack"].clip.frameRate >= 12 && gameObject.GetComponent<Animation> () ["attack"].time * gameObject.GetComponent<Animation> () ["attack"].clip.frameRate <= 14)
+			isattacking = true;
+		else
+			isattacking = false;
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			gameObject.GetComponent<Animation> ().Play ("attack");
+		}
+		if (gameObject.GetComponent<Animation> () ["attack"].time * gameObject.GetComponent<Animation> () ["attack"].clip.frameRate == 0)
+			isattacking = false;
 
 
     }
 
-	/*void AddAnim () 
-	{
-		ain = gameObject.GetComponent<Animation>();
-		clips = UnityEditor.AnimationUtility.GetAnimationClips (ain);
-	}
-	void OnTriggerEnter(Collider other){
-		if (other.gameObject.GetComponent<NavMeshAgent> () != null) {
-			other.gameObject.GetComponent<NavMeshAgent> ().destination = transform.position;
-
-		}
-	}*/
 	void OnTriggerStay(Collider other){
 		
 		other.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().destination = transform.position;
