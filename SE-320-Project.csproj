@@ -228,12 +228,14 @@
     <Compile Include="Assets\AShopExport\ShowAnimation.cs" />
     <Compile Include="Assets\AShopExport\UIObjRotation.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
+    <Compile Include="Assets\Scripts\CharacterScript.cs" />
     <Compile Include="Assets\Scripts\GoblinScript.cs" />
     <Compile Include="Assets\Scripts\GUIPanel.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\HobgoblinScript.cs" />
-    <Compile Include="Assets\Scripts\MovingTest.cs" />
+    <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\TrollScript.cs" />
+    <Compile Include="Assets\Scripts\ValuesScript.cs" />
     <Compile Include="Assets\Scripts\WolfScript.cs" />
   </ItemGroup>
   <ItemGroup>

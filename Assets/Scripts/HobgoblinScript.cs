@@ -11,6 +11,8 @@ public class HobgoblinScript : MonoBehaviour {
 	private bool isdead = false;
 	private bool isattacking = false;
 	private bool isMoving = false;
+    public int attack = 20;
+    public int health = 50;
 
 	// Use this for initialization
 	void Start () {
@@ -45,4 +47,13 @@ public class HobgoblinScript : MonoBehaviour {
 
 		anim.SetBool ("isAttacking", isattacking);
 	}
+
+    public void GetAttacked(int damage)
+    {
+        health = health - damage;
+        if (health <= 0)
+        {
+            isdead = true;
+        }
+    }
 }
