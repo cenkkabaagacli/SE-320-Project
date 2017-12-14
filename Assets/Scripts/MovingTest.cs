@@ -1,23 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+//using UnityEngine.AI;
 
 public class MovingTest : MonoBehaviour
 {
 	private int curAnimClip;
-    NavMeshAgent agent;
-	private Animation ain;
-	public AnimationClip [] clips;
+    //NavMeshAgent agent;
+	//private Animation ain;
+	//public AnimationClip [] clips;
     // Use this for initialization
     void Start()
     {
-		AddAnim ();
+		//AddAnim ();
     }
 
     void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        //agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -34,17 +34,19 @@ public class MovingTest : MonoBehaviour
 
 		transform.Translate (maxHorizontalSpeed * rightSpeed * Time.deltaTime,0,maxVerticalSpeed * upSpeed * Time.deltaTime);
 		if (rightSpeed != 0.0f || upSpeed != 0.0f) {
-			curAnimClip = 3;
-			gameObject.GetComponent<Animation> ().Play (clips [curAnimClip].name);
+			gameObject.GetComponent<Animation> ().Play ("walk");
+			//curAnimClip = 3;
+			//gameObject.GetComponent<Animation> ().Play (clips [curAnimClip].name);
 		} else {
-			curAnimClip = 4;
-			gameObject.GetComponent<Animation> ().Play (clips [curAnimClip].name);
+			gameObject.GetComponent<Animation> ().Play ("free");
+			//curAnimClip = 4;
+			//gameObject.GetComponent<Animation> ().Play (clips [curAnimClip].name);
 		}
 
 
     }
 
-	void AddAnim () 
+	/*void AddAnim () 
 	{
 		ain = gameObject.GetComponent<Animation>();
 		clips = UnityEditor.AnimationUtility.GetAnimationClips (ain);
@@ -54,10 +56,10 @@ public class MovingTest : MonoBehaviour
 			other.gameObject.GetComponent<NavMeshAgent> ().destination = transform.position;
 
 		}
-	}
+	}*/
 	void OnTriggerStay(Collider other){
 		
-		other.gameObject.GetComponent<NavMeshAgent>().destination = transform.position;
+		other.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().destination = transform.position;
 
 		if (other.gameObject.GetComponent<WolfScript> () != null) {
 			other.gameObject.GetComponent<WolfScript> ().setisMoving (true);

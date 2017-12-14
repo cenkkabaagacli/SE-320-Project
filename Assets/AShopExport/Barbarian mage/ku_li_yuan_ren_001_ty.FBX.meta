@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: c07955034805f164bb8dae82fa561fe5
 timeCreated: 18446744011573954816
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: Bip01
     100002: Bip01 Footsteps
@@ -258,10 +258,22 @@ ModelImporter:
     13700002: ku_li_yuan_ren_001_ty1
     13700004: ku_li_yuan_ren_001_ty
     13700006: ku_li_yuan_ren_wq_001_ty
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #25'
+    second: {fileID: 2100000, guid: e9e8cc8d2d8447140bf932806bdc6d1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #26'
+    second: {fileID: 2100000, guid: e9e8cc8d2d8447140bf932806bdc6d1a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -274,7 +286,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 2
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -1081,10 +1094,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Bip001
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
-    hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasTranslationDoF: 1
+    hasExtraRoot: 1
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
