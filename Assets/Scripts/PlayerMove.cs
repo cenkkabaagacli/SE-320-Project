@@ -7,11 +7,10 @@ public class PlayerMove : MonoBehaviour
     public int curAnimClip;
     public float maxVerticalSpeed = 7;
     public float maxHorizontalSpeed = 7;
-    public bool isattacking;
     // Use this for initialization
     void Start()
     {
-        isattacking = false;
+
     }
 
 
@@ -40,18 +39,12 @@ public class PlayerMove : MonoBehaviour
                 gameObject.GetComponent<Animation>().Play("free");
             }
         }
-
-        if (gameObject.GetComponent<Animation>()["attack"].time * gameObject.GetComponent<Animation>()["attack"].clip.frameRate >= 13 && gameObject.GetComponent<Animation>()["attack"].time * gameObject.GetComponent<Animation>()["attack"].clip.frameRate <= 13)
-            isattacking = true;
-        else
-            isattacking = false;
+	
         if (Input.GetKeyDown(KeyCode.Space))
         {
             gameObject.GetComponent<Animation>().Play("attack");
         }
-        if (gameObject.GetComponent<Animation>()["attack"].time * gameObject.GetComponent<Animation>()["attack"].clip.frameRate == 0)
-            isattacking = false;
-
+       
 
     }
 

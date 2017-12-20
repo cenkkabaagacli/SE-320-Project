@@ -34,6 +34,7 @@ public class HobgoblinScript : MonoBehaviour {
 			isattacking = false;
 			GetComponent<Rigidbody> ().isKinematic = true;
 			agent.enabled = false;
+			GetComponent<SphereCollider> ().enabled = false;
 		}
 		Vector3 curMove = transform.position - previousPosition;
 		curSpeed = curMove.magnitude / Time.deltaTime;

@@ -8,17 +8,18 @@ public class WeaponColliderScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 
 	IEnumerator Wait(){
-		
-
-
 		yield return new WaitForSecondsRealtime (0.500f);
+
 		RaycastHit hit;
+
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
+
 		if (Physics.Raycast (transform.position, fwd, out hit, 2) && hit.transform.tag == "Enemy") {
+
 			if (hit.transform.gameObject.GetComponent<WolfScript>() != null) {
 				hit.transform.gameObject.GetComponent<WolfScript> ().GetAttacked (parent.GetComponent<CharacterScript> ().attack);
 			}
@@ -34,7 +35,7 @@ public class WeaponColliderScript : MonoBehaviour {
 		}
 	}
 	// Update is called once per frame
-	void Update () {
+	void Update () {				
 		if (parent.GetComponent<Animation> ().IsPlaying("attack")!=true) {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				StartCoroutine (Wait ());
