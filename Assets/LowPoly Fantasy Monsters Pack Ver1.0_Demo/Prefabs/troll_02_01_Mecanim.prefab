@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 195012733968116206}
   m_Layer: 0
   m_Name: troll_02_01_Mecanim
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -975,8 +975,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143816}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.17882, y: 0, z: 8.051863}
+  m_LocalRotation: {x: -0, y: 0.86561865, z: -0, w: -0.50070393}
+  m_LocalPosition: {x: 66.77165, y: 0, z: 36.744286}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 443816}
@@ -988,7 +988,7 @@ Transform:
   - {fileID: 419672}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 240.09299, z: 0}
 --- !u!4 &443824
 Transform:
   m_ObjectHideFlags: 1
@@ -18623,6 +18623,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d050b1e8146786949b22cc5f478f180a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curSpeed: 0
+  isdamaged: 0
+  isdead: 0
+  isattacking: 0
+  isMoving: 0
+  attack: 25
+  health: 75
 --- !u!195 &195012733968116206
 NavMeshAgent:
   m_ObjectHideFlags: 1

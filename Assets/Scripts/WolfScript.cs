@@ -9,11 +9,11 @@ public class WolfScript : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
     private Vector3 previousPosition;
-    private float curSpeed;
-    private bool isdamaged = false;
-    private bool isdead = false;
-    private bool isattacking = false;
-    private bool isMoving = false;
+	public float curSpeed;
+	public bool isdamaged = false;
+    public bool isdead = false;
+	public bool isattacking = false;
+	public bool isMoving = false;
     public int attack = 15;
     public int health = 40;
 
@@ -37,6 +37,11 @@ public class WolfScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (isdead) {
+			isattacking = false;
+			GetComponent<Rigidbody> ().isKinematic = true;
+			agent.enabled = false;
+		}
         Vector3 curMove = transform.position - previousPosition;
         curSpeed = curMove.magnitude / Time.deltaTime;
         previousPosition = transform.position;
