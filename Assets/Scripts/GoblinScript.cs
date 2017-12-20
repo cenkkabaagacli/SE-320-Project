@@ -12,6 +12,8 @@ public class GoblinScript : MonoBehaviour {
 	private bool isdead = false;
 	private bool isattacking = false;
 	private bool isMoving = false;
+    public int attack = 12;
+    public int health = 25;
 
 
 	// Use this for initialization
@@ -48,4 +50,13 @@ public class GoblinScript : MonoBehaviour {
 
 		anim.SetBool ("isAttacking", isattacking);
 	}
+
+    public void GetAttacked(int damage)
+    {
+        health = health - damage;
+        if (health <= 0)
+        {
+            isdead = true;
+        }
+    }
 }

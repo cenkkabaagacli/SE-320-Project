@@ -11,6 +11,8 @@ public class TrollScript : MonoBehaviour {
 	private bool isdead = false;
 	private bool isattacking = false;
 	private bool isMoving = false;
+    public int attack = 25;
+    public int health = 75;
 
 
 	// Use this for initialization
@@ -46,4 +48,13 @@ public class TrollScript : MonoBehaviour {
 
 		anim.SetBool ("isAttacking", isattacking);
 	}
+
+    public void GetAttacked(int damage)
+    {
+        health = health - damage;
+        if (health <= 0)
+        {
+            isdead = true;
+        }
+    }
 }

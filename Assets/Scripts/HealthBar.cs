@@ -13,8 +13,8 @@ public class HealthBar : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        mySlider.value = 0.43f;
-        //Debug.Log(mySlider.value);
+	void Update ()
+    {
+        mySlider.value = GameObject.Find("Barbarian mage").GetComponent<CharacterScript>().health;   
 	}
 }
