@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
+    private int curAnimClip;
     public float maxVerticalSpeed = 7;
     public float maxHorizontalSpeed = 7;
-
+    private bool isattacking;
     // Use this for initialization
     void Start()
     {
+        isattacking = false;
     }
 
     void Awake()
@@ -20,23 +21,34 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         float rightSpeed = Input.GetAxis("Horizontal");
 
         float upSpeed = Input.GetAxis("Vertical");
 
-
-
         transform.Translate(maxHorizontalSpeed * rightSpeed * Time.deltaTime, 0, maxVerticalSpeed * upSpeed * Time.deltaTime);
-        if (rightSpeed != 0.0f || upSpeed != 0.0f)
+
+        if (!gameObject.GetComponent<Animation>().IsPlaying("attack"))
         {
-            gameObject.GetComponent<Animation>().Play("walk");
+            if (rightSpeed != 0.0f || upSpeed != 0.0f)
+            {
+                gameObject.GetComponent<Animation>().Play("walk");
+            }
+            else
+            {
+                gameObject.GetComponent<Animation>().Play("free");
+            }
         }
+
+        if (gameObject.GetComponent<Animation>()["attack"].time * gameObject.GetComponent<Animation>()["attack"].clip.frameRate >= 12 && gameObject.GetComponent<Animation>()["attack"].time * gameObject.GetComponent<Animation>()["attack"].clip.frameRate <= 14)
+            isattacking = true;
         else
+            isattacking = false;
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            gameObject.GetComponent<Animation>().Play("free");
+            gameObject.GetComponent<Animation>().Play("attack");
         }
+        if (gameObject.GetComponent<Animation>()["attack"].time * gameObject.GetComponent<Animation>()["attack"].clip.frameRate == 0)
+            isattacking = false;
 
 
     }
@@ -44,7 +56,7 @@ public class PlayerMove : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
 
-        other.gameObject.GetComponent<NavMeshAgent>().destination = transform.position;
+        other.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().destination = transform.position;
 
         if (other.gameObject.GetComponent<WolfScript>() != null)
         {
