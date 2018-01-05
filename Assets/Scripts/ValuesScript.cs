@@ -8,6 +8,8 @@ public class ValuesScript : MonoBehaviour {
     public Text attackValue;
     public Text defenceValue;
     public Text movementSpeedValue;
+    public Text levelValue;
+    public Text healthPotAmount;
 
 	// Use this for initialization
 	void Start ()
@@ -20,6 +22,8 @@ public class ValuesScript : MonoBehaviour {
     {
         attackValue.text = "" + GameObject.Find("Barbarian mage").GetComponent<CharacterScript>().attack;
         defenceValue.text = "" + GameObject.Find("Barbarian mage").GetComponent<CharacterScript>().defence;
-        movementSpeedValue.text = "" + GameObject.Find("Barbarian mage").GetComponent<PlayerMove>().maxHorizontalSpeed;
+        movementSpeedValue.text = "" + GameObject.Find("Barbarian mage").GetComponent<PlayerMove>().maxVerticalSpeed;
+        levelValue.text = "" + GameObject.Find("Barbarian mage").GetComponent<CharacterScript>().level;
+        healthPotAmount.text = "" + GameObject.Find("Barbarian mage").GetComponent<CharacterScript>().healthPotAmount;
     }
 }

@@ -11,17 +11,24 @@ public class HobgoblinScript : MonoBehaviour {
 	public bool isdead = false;
 	public bool isattacking = false;
 	public bool isMoving = false;
-    public int attack = 20;
+    private int attack = 15;
     public int health = 50;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		anim = GetComponent<Animator>();
 	}
 
 	public bool getisattacking(){
 		return isattacking;
+	}
+
+	public void DealDamage(){
+		if ((GameObject.Find ("Barbarian mage").transform.position - transform.position).magnitude < 7) {
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().TakeDamage (attack);
+		}
 	}
 
 	public void setisMoving(bool b){
@@ -52,6 +59,8 @@ public class HobgoblinScript : MonoBehaviour {
 		}
 
 		anim.SetBool ("isAttacking", isattacking);
+
+
 	}
 
     public void GetAttacked(int damage)
@@ -60,6 +69,7 @@ public class HobgoblinScript : MonoBehaviour {
         if (health <= 0)
         {
             isdead = true;
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(40);
         }
     }
 }

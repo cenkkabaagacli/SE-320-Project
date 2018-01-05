@@ -6,11 +6,13 @@ public class PlayerMove : MonoBehaviour
 {
     public int curAnimClip;
     public float maxVerticalSpeed = 7;
-    public float maxHorizontalSpeed = 7;
+    private float maxHorizontalSpeed = 60;
+	//private Vector3 currentLocation;
+	//private Vector3 previousLocation;
+	//public float lookSpeed= 10;
     // Use this for initialization
     void Start()
     {
-
     }
 
 
@@ -26,7 +28,13 @@ public class PlayerMove : MonoBehaviour
 
         float upSpeed = Input.GetAxis("Vertical");
 
-        transform.Translate(maxHorizontalSpeed * rightSpeed * Time.deltaTime, 0, maxVerticalSpeed * upSpeed * Time.deltaTime);
+        transform.Translate(0, 0, maxVerticalSpeed * upSpeed * Time.deltaTime);
+        transform.Rotate(0, maxHorizontalSpeed * rightSpeed * Time.deltaTime, 0);
+
+        /*transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (transform.position - previousLocation), Time.fixedDeltaTime * lookSpeed);
+		previousLocation = currentLocation;
+
+		currentLocation = transform.position;*/
 
         if (!gameObject.GetComponent<Animation>().IsPlaying("attack"))
         {

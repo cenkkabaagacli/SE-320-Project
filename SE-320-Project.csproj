@@ -236,6 +236,7 @@
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\TrollScript.cs" />
     <Compile Include="Assets\Scripts\ValuesScript.cs" />
+    <Compile Include="Assets\Scripts\WeaponColliderScript.cs" />
     <Compile Include="Assets\Scripts\WolfScript.cs" />
   </ItemGroup>
   <ItemGroup>

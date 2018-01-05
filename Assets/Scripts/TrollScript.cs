@@ -12,18 +12,27 @@ public class TrollScript : MonoBehaviour
 	public bool isdead = false;
 	public bool isattacking = false;
 	public bool isMoving = false;
-    public int attack = 25;
+    private int attack = 20;
     public int health = 75;
+    public GameObject Win;
+    public GameObject endGameSound;
+    public GameObject mapSound;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		anim = GetComponent<Animator>();
 	}
 
 	public bool getisattacking(){
 		return isattacking;
+	}
+
+	public void DealDamage(){
+		if ((GameObject.Find ("Barbarian mage").transform.position - transform.position).magnitude < 10) {
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().TakeDamage (attack);
+		}
 	}
 
 	public void setisMoving(bool b){
@@ -54,7 +63,13 @@ public class TrollScript : MonoBehaviour
 		}
 
 		anim.SetBool ("isAttacking", isattacking);
-	}
+
+        //deneme için yazdım, silincek
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            GetAttacked(50);
+        }
+    }
 
     public void GetAttacked(int damage)
     {
@@ -62,6 +77,10 @@ public class TrollScript : MonoBehaviour
         if (health <= 0)
         {
             isdead = true;
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(80);
+            Win.SetActive(true);
+            endGameSound.SetActive(true);
+            mapSound.SetActive(false);
         }
     }
 }

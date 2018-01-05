@@ -12,7 +12,7 @@ public class GoblinScript : MonoBehaviour {
 	public bool isdead = false;
 	public bool isattacking = false;
 	public bool isMoving = false;
-    public int attack = 12;
+    private int attack = 6;
     public int health = 25;
 
 
@@ -24,6 +24,12 @@ public class GoblinScript : MonoBehaviour {
 
 	public bool getisattacking(){
 		return isattacking;
+	}
+
+	public void DealDamage(){
+		if ((GameObject.Find ("Barbarian mage").transform.position - transform.position).magnitude < 6) {
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().TakeDamage (attack);
+		}
 	}
 
 	public void setisMoving(bool b){
@@ -63,6 +69,8 @@ public class GoblinScript : MonoBehaviour {
         if (health <= 0)
         {
             isdead = true;
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(25);
+
         }
     }
 }

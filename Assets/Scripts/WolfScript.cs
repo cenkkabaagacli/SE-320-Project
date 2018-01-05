@@ -14,7 +14,7 @@ public class WolfScript : MonoBehaviour
     public bool isdead = false;
 	public bool isattacking = false;
 	public bool isMoving = false;
-    public int attack = 15;
+    private int attack = 10;
     public int health = 40;
 
     // Use this for initialization
@@ -23,7 +23,11 @@ public class WolfScript : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
     }
-
+	void DealDamage(){
+		if ((GameObject.Find ("Barbarian mage").transform.position - transform.position).magnitude < 7) {
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().TakeDamage (attack);
+        }
+	}
     public bool getisattacking()
     {
         return isattacking;
@@ -72,6 +76,7 @@ public class WolfScript : MonoBehaviour
         if (health <= 0)
         {
             isdead = true;
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(20);
         }
     }
 }
