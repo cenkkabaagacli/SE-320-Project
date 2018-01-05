@@ -12,11 +12,12 @@ public class TrollScript : MonoBehaviour
 	public bool isdead = false;
 	public bool isattacking = false;
 	public bool isMoving = false;
-    private int attack = 20;
-    public int health = 75;
+	public int attack = 40;
+    public int health = 300;
     public GameObject Win;
     public GameObject endGameSound;
     public GameObject mapSound;
+	private bool doNotAttack = false;
 
 
     // Use this for initialization
@@ -54,11 +55,18 @@ public class TrollScript : MonoBehaviour
 		anim.SetFloat ("Speed", curSpeed);
 		anim.SetBool ("isDead", isdead);
 		anim.SetBool ("isDamaged", isdamaged);
-		if (isMoving) {
-			if ((transform.position - agent.destination).magnitude < 12) {
-				isattacking = true;
+		if (doNotAttack == false) {
+			if (GameObject.Find ("Barbarian mage").GetComponent<Animation> ().IsPlaying ("death") == false) {
+				if (isMoving) {
+					if ((transform.position - agent.destination).magnitude < 12) {
+						isattacking = true;
+					} else {
+						isattacking = false;
+					}
+				}
 			} else {
 				isattacking = false;
+				doNotAttack = true;
 			}
 		}
 

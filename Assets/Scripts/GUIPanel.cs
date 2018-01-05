@@ -59,11 +59,6 @@ public class GUIPanel : MonoBehaviour {
     // 'C' for CharacterAttributes, 'Esc' for PauseMenu
     private void MenusWithKeys()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            CharAtt.SetActive(!CharAtt.activeInHierarchy);
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause.SetActive(!Pause.activeInHierarchy);

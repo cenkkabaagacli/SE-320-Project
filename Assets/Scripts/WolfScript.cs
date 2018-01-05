@@ -14,8 +14,9 @@ public class WolfScript : MonoBehaviour
     public bool isdead = false;
 	public bool isattacking = false;
 	public bool isMoving = false;
-    private int attack = 10;
-    public int health = 40;
+	public int attack = 10;
+    public int health = 50;
+	private bool doNotAttack = false;
 
     // Use this for initialization
     void Start()
@@ -55,17 +56,24 @@ public class WolfScript : MonoBehaviour
         anim.SetBool("isDead", isdead);
         anim.SetBool("isDamaged", isdamaged);
 
-        if (isMoving)
-        {
-            if ((transform.position - agent.destination).magnitude < 12)
-            {
-                isattacking = true;
-            }
-            else
-            {
-                isattacking = false;
-            }
-        }
+		if (doNotAttack == false) {
+			if (GameObject.Find ("Barbarian mage").GetComponent<Animation> ().IsPlaying ("death") == false) {
+				if (isMoving) {
+					if ((transform.position - agent.destination).magnitude < 12) {
+						isattacking = true;
+					} 
+					else if ((transform.position - agent.destination).magnitude > 12) {
+						isattacking = false;
+					}
+					else {
+						isattacking = false;
+					}
+				}
+			} else {
+				isattacking = false;
+				doNotAttack = true;
+			}
+		}
 
         anim.SetBool("isAttacking", isattacking);
     }

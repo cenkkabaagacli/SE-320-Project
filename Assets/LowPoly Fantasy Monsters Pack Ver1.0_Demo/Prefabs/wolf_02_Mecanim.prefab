@@ -18218,7 +18218,7 @@ MonoBehaviour:
   isattacking: 0
   isMoving: 0
   attack: 15
-  health: 40
+  health: 50
 --- !u!195 &195591540125228686
 NavMeshAgent:
   m_ObjectHideFlags: 1

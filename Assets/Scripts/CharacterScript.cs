@@ -27,7 +27,9 @@ public class CharacterScript : MonoBehaviour
 
 	IEnumerator WaitForEndScreen(){
 		yield return new WaitForSecondsRealtime (1.19f);
-		print ("hi");
+		GameOver.SetActive(true);
+		endGameSound.SetActive(true);
+		mapSound.SetActive(false);
 	}
 
     // Update is called once per frame
@@ -46,9 +48,11 @@ public class CharacterScript : MonoBehaviour
 
         //can potu kullanma
         if (Input.GetKeyDown(KeyCode.H))
-        {
-            UseHealthPot();
-            Debug.Log("pot has used");
+        {	
+			if (healthPotAmount > 0) {
+				UseHealthPot ();
+				Debug.Log ("Used health pot");
+			}
         }
 
     }
@@ -58,12 +62,16 @@ public class CharacterScript : MonoBehaviour
         exp = exp + myExp;
         if (exp >= expNeed)
         {
+			int surplusExp;
             level++;
             levelCounter++;
             Debug.Log("level up");
             GameObject.Find("Pause").GetComponent<GUIPanel>().AttributeButtons(levelCounter);
-            expNeed = expNeed * 2;
-            health = 100;
+			surplusExp = exp - 100;
+			exp = 0 + surplusExp;
+			health = health + 30;
+			if (health > 100)
+				health = 100;
             healthPotAmount++;
         }
 
@@ -80,14 +88,14 @@ public class CharacterScript : MonoBehaviour
 
     public void IncMovSpeed()
     {        
-        gameObject.GetComponent<PlayerMove>().maxVerticalSpeed += 2;
+        gameObject.GetComponent<PlayerMove>().maxVerticalSpeed += 5;
         levelCounter--;
         GameObject.Find("Pause").GetComponent<GUIPanel>().AttributeButtons(levelCounter);
     }
 
     public void IncAttack()
     {
-        attack += 5;
+        attack += 3;
         levelCounter--;
         GameObject.Find("Pause").GetComponent<GUIPanel>().AttributeButtons(levelCounter);
     }
@@ -102,13 +110,10 @@ public class CharacterScript : MonoBehaviour
 	public void DeathCheck(){
 		if (health <= 0) {
 			GetComponent<PlayerMove> ().enabled = false;
-			GameObject.Find("SphereCastSource").GetComponent<WeaponColliderScript> ().enabled = false;
 			GetComponent<Animation> ().Play ("death");
 			StartCoroutine (WaitForEndScreen ());
 			isDead = true;
-            GameOver.SetActive(true);
-            endGameSound.SetActive(true);
-            mapSound.SetActive(false);
+            
         }
 	}
 

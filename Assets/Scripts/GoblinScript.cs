@@ -12,8 +12,9 @@ public class GoblinScript : MonoBehaviour {
 	public bool isdead = false;
 	public bool isattacking = false;
 	public bool isMoving = false;
-    private int attack = 6;
-    public int health = 25;
+    public int attack = 12;
+    public int health = 45;
+	private bool doNotAttack = false;
 
 
 	// Use this for initialization
@@ -52,11 +53,22 @@ public class GoblinScript : MonoBehaviour {
 		anim.SetBool ("isDead", isdead);
 		anim.SetBool ("isDamaged", isdamaged);
 
-		if (isMoving) {
-			if ((transform.position - agent.destination).magnitude < 12) {
-				isattacking = true;
+		if (doNotAttack == false) {
+			if (GameObject.Find ("Barbarian mage").GetComponent<Animation> ().IsPlaying ("death") == false) {
+				if (isMoving) {
+					if ((transform.position - agent.destination).magnitude < 12) {
+						isattacking = true;
+					}
+					else if ((transform.position - agent.destination).magnitude > 12) {
+						isattacking = false;
+					} 
+					else {
+						isattacking = false;
+					}
+				}
 			} else {
 				isattacking = false;
+				doNotAttack = true;
 			}
 		}
 

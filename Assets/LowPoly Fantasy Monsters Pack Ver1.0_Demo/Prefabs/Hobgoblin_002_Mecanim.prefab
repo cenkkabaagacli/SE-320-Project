@@ -35830,8 +35830,8 @@ MonoBehaviour:
   isdead: 0
   isattacking: 0
   isMoving: 0
-  attack: 20
-  health: 50
+  attack: 25
+  health: 80
 --- !u!195 &195856860467155812
 NavMeshAgent:
   m_ObjectHideFlags: 1
