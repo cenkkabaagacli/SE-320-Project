@@ -40,7 +40,7 @@ public class CharacterScript : MonoBehaviour
 		}
 
         //deneme için yazdım, silincek
-        if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.L))
         {
             SetExp(20);
             Debug.Log("exp + 20");

@@ -54,23 +54,27 @@ public class HobgoblinScript : MonoBehaviour {
 
 		if (doNotAttack == false) {
 			if (GameObject.Find ("Barbarian mage").GetComponent<Animation> ().IsPlaying ("death") == false) {
-				if (isMoving) {
+				if(isMoving) {
+					if ((GameObject.Find ("Barbarian mage").transform.position - transform.position).magnitude > 12) {
+						isattacking = false;
+						goto skip;
+					} 
 					if ((transform.position - agent.destination).magnitude < 12) {
 						isattacking = true;
 					}
-					else if ((transform.position - agent.destination).magnitude > 12) {
-						isattacking = false;
-					} 
+
 					else {
 						isattacking = false;
 					}
 				}
-			} else {
+
+			}
+			else {
 				isattacking = false;
 				doNotAttack = true;
 			}
 		}
-
+		skip:
 		anim.SetBool ("isAttacking", isattacking);
 
 
