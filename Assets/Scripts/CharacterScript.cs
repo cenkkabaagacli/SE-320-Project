@@ -39,12 +39,12 @@ public class CharacterScript : MonoBehaviour
 			DeathCheck();
 		}
 
-        /*deneme için yazdım, silincek
+        //deneme için yazdım, silincek
         if (Input.GetKeyDown(KeyCode.E))
         {
             SetExp(20);
             Debug.Log("exp + 20");
-        }*/
+        }
 
         //can potu kullanma
         if (Input.GetKeyDown(KeyCode.H))
