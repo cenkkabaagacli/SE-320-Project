@@ -19,6 +19,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AmbushTrigger.cs" t="Include" />
+          <e p="CameraCollision.cs" t="Include" />
           <e p="CharacterScript.cs" t="Include" />
           <e p="GoblinScript.cs" t="Include" />
           <e p="GUIPanel.cs" t="Include" />
