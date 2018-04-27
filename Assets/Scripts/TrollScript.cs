@@ -12,8 +12,8 @@ public class TrollScript : MonoBehaviour
 	public bool isdead = false;
 	public bool isattacking = false;
 	public bool isMoving = false;
-	public int attack = 40;
-    public int health = 300;
+	public int attack = 50;
+    public int health = 500;
     public GameObject Win;
     public GameObject endGameSound;
     public GameObject mapSound;
