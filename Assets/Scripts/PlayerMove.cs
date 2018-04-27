@@ -52,6 +52,11 @@ public class PlayerMove : MonoBehaviour
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			gameObject.GetComponent<Animation> ().Play ("attack");
 		}
+
+	    if (Input.GetKeyDown(KeyCode.E))
+	    {
+		    gameObject.GetComponent<Animation> ().Play ("skill");
+	    }
     }
 
     void OnTriggerStay(Collider other)

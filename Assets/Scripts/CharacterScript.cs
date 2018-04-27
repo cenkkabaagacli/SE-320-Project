@@ -7,6 +7,7 @@ public class CharacterScript : MonoBehaviour
 {
 
     public int attack = 20;
+	public int skillAttack = 40;
     public int defence = 5;
     public float health = 100f;
     private int exp = 0;
@@ -18,6 +19,9 @@ public class CharacterScript : MonoBehaviour
     public GameObject GameOver;
     public GameObject endGameSound;
     public GameObject mapSound;
+	private int layerMask = 8;
+	public GameObject hitEffect;
+	public AudioClip[] hitAudioSources;
 
     // Use this for initialization
     void Start()
@@ -115,6 +119,65 @@ public class CharacterScript : MonoBehaviour
 			isDead = true;
             
         }
+	}
+
+	public void SkillAttack()
+	{
+		Vector3 center = GameObject.Find("SkillSphereCastAllSource").transform.position;
+		float radius = 4f;
+		
+		/*RaycastHit[] Physics.SphereCastAll(source, radius, new Vector3(0,0,0), 1f, int layerMask = 8, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.Ignore); 
+		
+		RaycastHit2D[] CircleCastAll(source, radius, new Vector2(1,1), 3f, layerMask );*/
+		
+		Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+		int i = 0;
+		while (i < hitColliders.Length)
+		{
+			print("hit");
+			
+			if (hitColliders[i].transform.tag == "Enemy") {
+
+			
+				if (hitColliders[i].transform.gameObject.GetComponent<WolfScript>() != null) {
+				hitColliders[i].transform.gameObject.GetComponent<WolfScript> ().GetAttacked (GetComponent<CharacterScript> ().skillAttack);
+				Vector3 hitpos = hitColliders[i].transform.position;
+				hitpos += Vector3.up;
+				Instantiate (hitEffect, hitpos, hitColliders[i].transform.rotation);
+				GetComponent<AudioSource> ().clip = hitAudioSources [Random.Range (0, 5)];
+				GetComponent<AudioSource> ().Play ();
+				}
+			
+				if (hitColliders[i].transform.gameObject.GetComponent<GoblinScript>() != null) {
+				hitColliders[i].transform.gameObject.GetComponent<GoblinScript> ().GetAttacked (GetComponent<CharacterScript> ().skillAttack);
+				Vector3 hitpos = hitColliders[i].transform.position;
+				hitpos += Vector3.up;
+				Instantiate (hitEffect, hitpos, hitColliders[i].transform.rotation);
+				GetComponent<AudioSource> ().clip = hitAudioSources [Random.Range (0, hitAudioSources.Length)];
+				GetComponent<AudioSource> ().Play ();
+				}
+			
+				if (hitColliders[i].transform.gameObject.GetComponent<HobgoblinScript>() != null) {
+				hitColliders[i].transform.gameObject.GetComponent<HobgoblinScript> ().GetAttacked (GetComponent<CharacterScript> ().skillAttack);
+				Vector3 hitpos = hitColliders[i].transform.position;
+				hitpos += Vector3.up;
+				Instantiate (hitEffect, hitpos, hitColliders[i].transform.rotation);
+				GetComponent<AudioSource> ().clip = hitAudioSources [Random.Range (0, hitAudioSources.Length)];
+				GetComponent<AudioSource> ().Play ();
+				}
+			
+				if (hitColliders[i].transform.gameObject.GetComponent<TrollScript>() != null) {
+				hitColliders[i].transform.gameObject.GetComponent<TrollScript> ().GetAttacked (GetComponent<CharacterScript> ().skillAttack);
+				Vector3 hitpos = hitColliders[i].transform.position;
+				hitpos += Vector3.up;
+				Instantiate (hitEffect, hitpos, hitColliders[i].transform.rotation);
+				GetComponent<AudioSource> ().clip = hitAudioSources [Random.Range (0, hitAudioSources.Length)];
+				GetComponent<AudioSource> ().Play ();
+				}
+			}
+			
+			i++;
+		}
 	}
 
     public void UseHealthPot()
