@@ -14,6 +14,8 @@ public class GoblinScript : MonoBehaviour {
 	public bool isMoving = false;
     public int attack = 12;
     public int health = 45;
+	public int expValue = 40;
+	private int respawnCounter = 1;
 	private bool doNotAttack = false;
 
 
@@ -44,6 +46,7 @@ public class GoblinScript : MonoBehaviour {
 			GetComponent<Rigidbody> ().isKinematic = true;
 			agent.enabled = false;
 			GetComponent<SphereCollider> ().enabled = false;
+			RespawnCheck((GameObject.Find ("Barbarian mage").transform.position));
 		}
 		Vector3 curMove = transform.position - previousPosition;
 		curSpeed = curMove.magnitude / Time.deltaTime;
@@ -85,8 +88,29 @@ public class GoblinScript : MonoBehaviour {
         if (health <= 0)
         {
             isdead = true;
-			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(25);
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(expValue);
 
         }
     }
+	
+	private void RespawnCheck(Vector3 target)
+	{
+		if ((target - transform.position).magnitude > 300) {
+			isattacking = true;
+			GetComponent<Rigidbody> ().isKinematic = false;
+			agent.enabled = true;
+			GetComponent<SphereCollider> ().enabled = true;
+			respawnCounter++;
+			health = 0;
+			
+			for (int i = 1; i <= respawnCounter; i++)
+			{
+				health += 45;
+				attack += 12;
+				expValue += 25;
+			}
+
+			isdead = false;
+		} 
+	}
 }

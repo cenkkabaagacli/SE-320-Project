@@ -36272,6 +36272,7 @@ MonoBehaviour:
   isMoving: 0
   attack: 25
   health: 80
+  expValue: 40
 --- !u!195 &195856860467155812
 NavMeshAgent:
   m_ObjectHideFlags: 1

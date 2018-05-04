@@ -2760,10 +2760,6 @@ Prefab:
       propertyPath: m_Name
       value: Hobgoblin_002_Mecanim (18)
       objectReference: {fileID: 0}
-    - target: {fileID: 465622, guid: b7f1dfc4e01f4a645a02f3816571583e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -149.39601
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7f1dfc4e01f4a645a02f3816571583e, type: 2}
   m_IsPrefabParent: 0
@@ -4044,10 +4040,6 @@ Prefab:
       propertyPath: m_Name
       value: wolf_02_Mecanim (34)
       objectReference: {fileID: 0}
-    - target: {fileID: 480470, guid: f4864ffb159f30048a3bdafeae646afb, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -116.342
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4864ffb159f30048a3bdafeae646afb, type: 2}
   m_IsPrefabParent: 0
@@ -4937,10 +4929,6 @@ Prefab:
     - target: {fileID: 193048, guid: be3cbaf02f5437e4a8956b882b64ad92, type: 2}
       propertyPath: m_Name
       value: goblin_01_Mecanim (40)
-      objectReference: {fileID: 0}
-    - target: {fileID: 493048, guid: be3cbaf02f5437e4a8956b882b64ad92, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -84.896
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be3cbaf02f5437e4a8956b882b64ad92, type: 2}

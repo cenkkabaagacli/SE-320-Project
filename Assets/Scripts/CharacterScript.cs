@@ -134,7 +134,6 @@ public class CharacterScript : MonoBehaviour
 		int i = 0;
 		while (i < hitColliders.Length)
 		{
-			print("hit");
 			
 			if (hitColliders[i].transform.tag == "Enemy") {
 

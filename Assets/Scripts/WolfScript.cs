@@ -16,7 +16,9 @@ public class WolfScript : MonoBehaviour
 	public bool isMoving = false;
 	public int attack = 10;
     public int health = 50;
+	public int expValue = 20;
 	private bool doNotAttack = false;
+	private int respawnCounter = 1;
 
     // Use this for initialization
     void Start()
@@ -47,6 +49,7 @@ public class WolfScript : MonoBehaviour
 			GetComponent<Rigidbody> ().isKinematic = true;
 			agent.enabled = false;
 			GetComponent<SphereCollider> ().enabled = false;
+			RespawnCheck((GameObject.Find ("Barbarian mage").transform.position));
 		}
         Vector3 curMove = transform.position - previousPosition;
         curSpeed = curMove.magnitude / Time.deltaTime;
@@ -88,7 +91,26 @@ public class WolfScript : MonoBehaviour
         if (health <= 0)
         {
             isdead = true;
-			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(20);
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(expValue);
         }
     }
+	private void RespawnCheck(Vector3 target)
+	{
+		if ((target - transform.position).magnitude > 300) {
+			isattacking = true;
+			GetComponent<Rigidbody> ().isKinematic = false;
+			agent.enabled = true;
+			GetComponent<SphereCollider> ().enabled = true;
+			respawnCounter++;
+			health = 0;
+			
+			for (int i = 1; i <= respawnCounter; i++)
+			{
+				health += 50;
+				attack += 10;
+				expValue += 20;
+			}
+			isdead = false;
+		} 
+	}
 }

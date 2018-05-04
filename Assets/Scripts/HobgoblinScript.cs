@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class HobgoblinScript : MonoBehaviour {
@@ -13,7 +14,11 @@ public class HobgoblinScript : MonoBehaviour {
 	public bool isMoving = false;
 	public int attack = 25;
     public int health = 80;
+	public int expValue = 40;
+	private int respawnCounter = 1;
 	private bool doNotAttack = false;
+	
+	
 
 
     // Use this for initialization
@@ -43,6 +48,7 @@ public class HobgoblinScript : MonoBehaviour {
 			GetComponent<Rigidbody> ().isKinematic = true;
 			agent.enabled = false;
 			GetComponent<SphereCollider> ().enabled = false;
+			RespawnCheck((GameObject.Find ("Barbarian mage").transform.position));
 		}
 		Vector3 curMove = transform.position - previousPosition;
 		curSpeed = curMove.magnitude / Time.deltaTime;
@@ -85,8 +91,30 @@ public class HobgoblinScript : MonoBehaviour {
         health = health - damage;
         if (health <= 0)
         {
+	        health = 0;
             isdead = true;
-			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(40);
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(expValue);
         }
     }
+
+	private void RespawnCheck(Vector3 target)
+	{
+		if ((target - transform.position).magnitude > 300) {
+			isattacking = true;
+			GetComponent<Rigidbody> ().isKinematic = false;
+			agent.enabled = true;
+			GetComponent<SphereCollider> ().enabled = true;
+			respawnCounter++;
+			health = 0;
+			
+			for (int i = 1; i <= respawnCounter; i++)
+			{
+				health += 80;
+				attack += 10;
+				expValue += 40;
+			}
+
+			isdead = false;
+		} 
+	}
 }
