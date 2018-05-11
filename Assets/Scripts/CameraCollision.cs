@@ -35,7 +35,7 @@ public class CameraCollision : MonoBehaviour {
 		
 		if (Physics.Raycast(charPos, charToCam.normalized, out hit, distance, mapLayerMask))
 		{
-			Debug.Log("camera hit " + hit.collider);
+			//Debug.Log("camera hit " + hit.collider);
 			Vector3 newCamPos = hit.point + -0.5f * charToCam.normalized;
 			//Debug.DrawLine(charPos, newCamPos, Color.magenta, 0, false);
 			transform.position = newCamPos;

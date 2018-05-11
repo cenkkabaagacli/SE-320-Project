@@ -22,6 +22,7 @@ public class CharacterScript : MonoBehaviour
 	private int layerMask = 8;
 	public GameObject hitEffect;
 	public AudioClip[] hitAudioSources;
+	private bool isNPCHit = false;
 
     // Use this for initialization
     void Start()
@@ -59,6 +60,13 @@ public class CharacterScript : MonoBehaviour
 			}
         }
 
+	    if (Input.GetKeyDown(KeyCode.R))
+	    {
+		    if (isNPCHit == true)
+		    {
+			    Debug.Log("domat");
+		    }
+	    }
     }
 
     public void SetExp(int myExp)
@@ -184,5 +192,24 @@ public class CharacterScript : MonoBehaviour
         healthPotAmount--;
         health = 100;
     }
+	
+	private void OnTriggerEnter(Collider npc)
+     {
+     	if (npc.gameObject.name == "Barbarian shaman")
+	     {
+		     Debug.Log("npc - true");
 
+		     isNPCHit = true;
+	     }
+     }
+
+	private void OnTriggerExit(Collider npc)
+	{
+		if (npc.gameObject.name == "Barbarian shaman")
+		{
+			Debug.Log("npc - false");
+
+			isNPCHit = false;
+		}
+	}
 }
