@@ -19,15 +19,12 @@ public class WolfScript : MonoBehaviour
 	public int expValue = 20;
 	private bool doNotAttack = false;
 	private int respawnCounter = 1;
-	private Vector3 startPosition;
-
 
     // Use this for initialization
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-	    startPosition = this.transform.position;
     }
 	void DealDamage(){
 		if ((GameObject.Find ("Barbarian mage").transform.position - transform.position).magnitude < 7) {
@@ -112,7 +109,6 @@ public class WolfScript : MonoBehaviour
 				health += 50;
 				attack += 10;
 				expValue += 20;
-				this.transform.position = startPosition;
 			}
 			isdead = false;
 		} 

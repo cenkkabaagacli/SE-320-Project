@@ -17,14 +17,12 @@ public class GoblinScript : MonoBehaviour {
 	public int expValue = 40;
 	private int respawnCounter = 1;
 	private bool doNotAttack = false;
-	private Vector3 startPosition;
 
 
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		anim = GetComponent<Animator>();
-		startPosition = this.transform.position;
 	}
 
 	public bool getisattacking(){
@@ -110,11 +108,9 @@ public class GoblinScript : MonoBehaviour {
 				health += 45;
 				attack += 12;
 				expValue += 25;
-				this.transform.position = startPosition;
 			}
 
 			isdead = false;
-			
 		} 
 	}
 }

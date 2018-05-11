@@ -20,15 +20,12 @@ public class TrollScript : MonoBehaviour
     public GameObject endGameSound;
     public GameObject mapSound;
 	private bool doNotAttack = false;
-	private Vector3 startPosition;
-
 
 
     // Use this for initialization
     void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		anim = GetComponent<Animator>();
-	    startPosition = this.transform.position;
 	}
 
 	public bool getisattacking(){
@@ -121,7 +118,6 @@ public class TrollScript : MonoBehaviour
 				health += 500;
 				attack += 50;
 				expValue += 80;
-				this.transform.position = startPosition;
 			}
 
 			isdead = false;

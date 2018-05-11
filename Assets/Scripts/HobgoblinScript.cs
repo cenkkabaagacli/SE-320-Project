@@ -17,8 +17,6 @@ public class HobgoblinScript : MonoBehaviour {
 	public int expValue = 40;
 	private int respawnCounter = 1;
 	private bool doNotAttack = false;
-	private Vector3 startPosition;
-
 	
 	
 
@@ -27,7 +25,6 @@ public class HobgoblinScript : MonoBehaviour {
     void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		anim = GetComponent<Animator>();
-	    startPosition = this.transform.position;
 	}
 
 	public bool getisattacking(){
@@ -115,7 +112,6 @@ public class HobgoblinScript : MonoBehaviour {
 				health += 80;
 				attack += 10;
 				expValue += 40;
-				this.transform.position = startPosition;
 			}
 
 			isdead = false;
