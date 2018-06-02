@@ -24,6 +24,7 @@ public class CharacterScript : MonoBehaviour
     public GameObject hitEffect;
     public AudioClip[] hitAudioSources;
     private bool isNPCHit = false;
+    public GameObject Quest1;
 
     // Use this for initialization
     void Start()
@@ -60,12 +61,13 @@ public class CharacterScript : MonoBehaviour
                 Debug.Log ("Used health pot");
             }
         }
-
+        
+        //npc ile etkileşim
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (isNPCHit == true)
             {
-                Debug.Log("domat");
+                    Quest1.SetActive(true);
             }
         }
 
@@ -210,6 +212,7 @@ public class CharacterScript : MonoBehaviour
         if (npc.gameObject.name == "Barbarian shaman")
         {
             Debug.Log("npc - false");
+            Quest1.SetActive(false);
 
             isNPCHit = false;
         }

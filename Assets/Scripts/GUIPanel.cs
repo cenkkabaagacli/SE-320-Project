@@ -18,6 +18,7 @@ public class GUIPanel : MonoBehaviour {
     public GameObject AttackButton;
     public GameObject DefenceButton;
     public GameObject MovementSpeedButton;
+    public GameObject Quest1;
 
     // Update is called once per frame
     void Update ()
@@ -56,12 +57,19 @@ public class GUIPanel : MonoBehaviour {
         MapSound.SetActive(!MapSound.activeInHierarchy);
     }
 
-    // 'C' for CharacterAttributes, 'Esc' for PauseMenu
+    //'Esc' for PauseMenu
     private void MenusWithKeys()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause.SetActive(!Pause.activeInHierarchy);
+            if (Quest1.activeInHierarchy == true)
+            {
+                Quest1.SetActive(false);
+            }
+            else
+            {
+                Pause.SetActive(!Pause.activeInHierarchy);
+            }
         }
     }
 
