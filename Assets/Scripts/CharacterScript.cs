@@ -70,6 +70,11 @@ public class CharacterScript : MonoBehaviour
                     Quest1.SetActive(true);
             }
         }
+        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            GoToBossRoom();
+        }
 
     }
 
@@ -179,6 +184,15 @@ public class CharacterScript : MonoBehaviour
 			
                 if (hitColliders[i].transform.gameObject.GetComponent<TrollScript>() != null) {
                     hitColliders[i].transform.gameObject.GetComponent<TrollScript> ().GetAttacked (GetComponent<CharacterScript> ().skillAttack);
+                    Vector3 hitpos = hitColliders[i].transform.position;
+                    hitpos += Vector3.up;
+                    Instantiate (hitEffect, hitpos, hitColliders[i].transform.rotation);
+                    GetComponent<AudioSource> ().clip = hitAudioSources [Random.Range (0, hitAudioSources.Length)];
+                    GetComponent<AudioSource> ().Play ();
+                }
+                
+                if (hitColliders[i].transform.gameObject.GetComponent<BossScript>() != null) {
+                    hitColliders[i].transform.gameObject.GetComponent<BossScript> ().GetAttacked (GetComponent<CharacterScript> ().skillAttack);
                     Vector3 hitpos = hitColliders[i].transform.position;
                     hitpos += Vector3.up;
                     Instantiate (hitEffect, hitpos, hitColliders[i].transform.rotation);

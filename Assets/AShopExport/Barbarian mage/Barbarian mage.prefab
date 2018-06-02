@@ -1544,6 +1544,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1734,6 +1735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 20
+  skillAttack: 40
   defence: 5
   health: 100
   level: 1
@@ -1742,6 +1744,9 @@ MonoBehaviour:
   GameOver: {fileID: 0}
   endGameSound: {fileID: 1211808564180754}
   mapSound: {fileID: 0}
+  hitEffect: {fileID: 0}
+  hitAudioSources: []
+  Quest1: {fileID: 0}
 --- !u!114 &114994796891728018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1763,6 +1768,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bcb191657320bd438230238fd7f7c7f, type: 3}
   - {fileID: 8300000, guid: ff0fee0780d745e4a8f3c1eb967a06e1, type: 3}
   - {fileID: 8300000, guid: bd8117679f8fadf47b6ade1b931ccfa7, type: 3}
+  SkillTimeReadyAsSeconds: 0
 --- !u!124 &124747412020979998
 Behaviour:
   m_ObjectHideFlags: 1

@@ -87,10 +87,10 @@ public class TrollScript : MonoBehaviour
 		skip:
 		anim.SetBool ("isAttacking", isattacking);
 
-        if (Input.GetKeyDown(KeyCode.M))
+        /*if (Input.GetKeyDown(KeyCode.M))
         {
             GetAttacked(50);
-        }
+        }*/
     }
 
     public void GetAttacked(int damage)

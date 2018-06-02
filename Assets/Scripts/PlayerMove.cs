@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     private float SkillCoolDown = 6;
     private float SkillActivation = 0;
     public float SkillTimeReadyAsSeconds;
+    private float WalkAnimationSpeed;
 	
 
     //private Vector3 currentLocation;
@@ -42,6 +43,11 @@ public class PlayerMove : MonoBehaviour
 
         transform.Translate(0, 0, maxVerticalSpeed * upSpeed * Time.deltaTime);
         transform.Rotate(0, maxHorizontalSpeed * rightSpeed * Time.deltaTime, 0);
+        
+        if(maxVerticalSpeed <= 35)
+            WalkAnimationSpeed = maxVerticalSpeed * 8 / 10 / 7 * 100;
+        
+        gameObject.GetComponent<Animation>()["walk"].speed = WalkAnimationSpeed /100 ;
 
         if (!gameObject.GetComponent<Animation>().IsPlaying("attack") && !gameObject.GetComponent<Animation>().IsPlaying("skill"))
         {
@@ -107,6 +113,15 @@ public class PlayerMove : MonoBehaviour
                         }  
                     }
                 }
+                
+                if (other.gameObject.GetComponent<BossScript> () != null) {
+                    other.gameObject.GetComponent<BossScript> ().setisMoving (true);
+                    if (other.gameObject.GetComponent<BossScript> ().getisattacking ()) {
+                        if (other.gameObject.GetComponent<BossScript> ().isdead == false) {
+                            other.gameObject.transform.LookAt (gameObject.transform);
+                        }
+                    }
+                }
             }
         }
     }
@@ -152,6 +167,15 @@ public class PlayerMove : MonoBehaviour
                         }  
                     }
                 }
+                
+                if (other.gameObject.GetComponent<BossScript> () != null) {
+                    other.gameObject.GetComponent<BossScript> ().setisMoving (true);
+                    if (other.gameObject.GetComponent<BossScript> ().getisattacking ()) {
+                        if (other.gameObject.GetComponent<BossScript> ().isdead) {
+                            other.gameObject.transform.LookAt (gameObject.transform);
+                        }  
+                    }
+                }
             }
         }
     }
@@ -171,6 +195,7 @@ public class PlayerMove : MonoBehaviour
                 GetComponent<AudioSource> ().clip = hitAudioSources [Random.Range (0, hitAudioSources.Length)];
                 GetComponent<AudioSource> ().Play ();
             }
+            
             if (hit.transform.gameObject.GetComponent<GoblinScript>() != null) {
                 hit.transform.gameObject.GetComponent<GoblinScript> ().GetAttacked (GetComponent<CharacterScript> ().attack);
                 Vector3 hitpos = hit.transform.position;
@@ -179,6 +204,7 @@ public class PlayerMove : MonoBehaviour
                 GetComponent<AudioSource> ().clip = hitAudioSources [Random.Range (0, hitAudioSources.Length)];
                 GetComponent<AudioSource> ().Play ();
             }
+            
             if (hit.transform.gameObject.GetComponent<HobgoblinScript>() != null) {
                 hit.transform.gameObject.GetComponent<HobgoblinScript> ().GetAttacked (GetComponent<CharacterScript> ().attack);
                 Vector3 hitpos = hit.transform.position;
@@ -187,8 +213,18 @@ public class PlayerMove : MonoBehaviour
                 GetComponent<AudioSource> ().clip = hitAudioSources [Random.Range (0, hitAudioSources.Length)];
                 GetComponent<AudioSource> ().Play ();
             }
+            
             if (hit.transform.gameObject.GetComponent<TrollScript>() != null) {
                 hit.transform.gameObject.GetComponent<TrollScript> ().GetAttacked (GetComponent<CharacterScript> ().attack);
+                Vector3 hitpos = hit.transform.position;
+                hitpos += Vector3.up;
+                Instantiate (hitEffect, hitpos, hit.transform.rotation);
+                GetComponent<AudioSource> ().clip = hitAudioSources [Random.Range (0, hitAudioSources.Length)];
+                GetComponent<AudioSource> ().Play ();
+            }
+            
+            if (hit.transform.gameObject.GetComponent<BossScript>() != null) {
+                hit.transform.gameObject.GetComponent<BossScript> ().GetAttacked (GetComponent<CharacterScript> ().attack);
                 Vector3 hitpos = hit.transform.position;
                 hitpos += Vector3.up;
                 Instantiate (hitEffect, hitpos, hit.transform.rotation);
