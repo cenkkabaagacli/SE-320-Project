@@ -25,6 +25,9 @@ public class CharacterScript : MonoBehaviour
     public AudioClip[] hitAudioSources;
     private bool isNPCHit = false;
     public GameObject Quest1;
+    public int attackBuff = 0;
+    public int speedBuff = 0;
+    public int defenceBuff = 0;
 
     // Use this for initialization
     void Start()
@@ -244,5 +247,25 @@ public class CharacterScript : MonoBehaviour
         GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = false;
         transform.position= new Vector3(19,0,9);
         GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = true;
+    }
+
+    public void GiveRandomBuff()
+    {
+        int buff = Random.Range(1, 4);
+        if (buff == 1)
+        {
+            attackBuff++;
+            attack += 5;
+        }
+        else if (buff == 2)
+        {
+            speedBuff++;
+            GetComponent<PlayerMove>().maxVerticalSpeed += 5;
+        }
+        else if (buff == 3)
+        {
+            defenceBuff++;
+            defence += 5;
+        }
     }
 }
