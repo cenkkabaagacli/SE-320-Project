@@ -8,7 +8,7 @@ public class CharacterScript : MonoBehaviour
 {
 
     public int attack = 20;
-    public int skillAttack = 40;
+    public int skillAttack = 30;
     public int defence = 5;
     public float health = 100f;
     private int exp = 0;
@@ -59,8 +59,8 @@ public class CharacterScript : MonoBehaviour
         //deneme için yazdım, silincek
         if (Input.GetKeyDown(KeyCode.L))
         {
-            SetExp(20);
-            Debug.Log("exp + 20");
+            SetExp(50);
+            Debug.Log("exp + 50");
         }
 
         //can potu kullanma
@@ -163,6 +163,7 @@ public class CharacterScript : MonoBehaviour
 
     public void SkillAttack()
     {
+        skillAttack = attack * 3 / 2;
         Vector3 center = GameObject.Find("SkillSphereCastAllSource").transform.position;
         float radius = 4f;
 		
@@ -320,4 +321,6 @@ public class CharacterScript : MonoBehaviour
             DefenceBuff.GetComponent<Text>().text = "+" + defenceBuff;
         }
     }
+
+ 
 }
