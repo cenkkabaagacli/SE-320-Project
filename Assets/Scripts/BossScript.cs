@@ -19,6 +19,7 @@ public class BossScript : MonoBehaviour {
     public GameObject Win;
     public GameObject endGameSound;
     public GameObject mapSound;
+    public GameObject EndGame;
     private bool doNotAttack = false;
     private Vector3 startPosition;
 	
@@ -111,7 +112,8 @@ public class BossScript : MonoBehaviour {
             GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(expValue);
             Win.SetActive(true);
             endGameSound.SetActive(true);
-            mapSound.SetActive(false);	
+            mapSound.SetActive(false);
+            EndGame.SetActive(true);
         }
     }
     

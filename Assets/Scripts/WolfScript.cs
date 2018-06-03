@@ -95,6 +95,12 @@ public class WolfScript : MonoBehaviour
         {
             isdead = true;
 			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(expValue);
+	        
+	        if (GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().WolfQuest == true && 
+	            GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().WolfCounter < 13)
+	        {
+		        GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().WolfCounter++;
+	        }
         }
     }
 	private void RespawnCheck(Vector3 target)

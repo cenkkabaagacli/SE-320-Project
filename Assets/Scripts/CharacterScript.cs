@@ -24,10 +24,17 @@ public class CharacterScript : MonoBehaviour
     public GameObject hitEffect;
     public AudioClip[] hitAudioSources;
     private bool isNPCHit = false;
-    public GameObject Quest1;
+    public GameObject QuestWarning;
+    public GameObject QuestNotCompleted;
+    public GameObject QuestCompleted;
     public int attackBuff = 0;
     public int speedBuff = 0;
     public int defenceBuff = 0;
+    public GameObject AttackBuff;
+    public GameObject DefenceBuff;
+    public GameObject MovementSpeedBuff;
+    private bool isMapChangerHit = false;
+    public GameObject ChangeMap;
 
     // Use this for initialization
     void Start()
@@ -70,15 +77,28 @@ public class CharacterScript : MonoBehaviour
         {
             if (isNPCHit == true)
             {
-                    Quest1.SetActive(true);
+                if (GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().QuestIsAccepted == true
+                    && GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().QuestIsCompleted == false)
+                {
+                    QuestWarning.SetActive(true);
+                }
+                else if (GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().QuestIsAccepted == true
+                    && GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().QuestIsCompleted == true)
+                {
+                    QuestCompleted.SetActive(true);
+                }
+                else
+                {
+                    QuestNotCompleted.SetActive(true);
+                }
+
+            }
+
+            if (isMapChangerHit == true)
+            {
+                ChangeMap.SetActive(true);
             }
         }
-        
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            GoToBossRoom();
-        }
-
     }
 
     public void SetExp(int myExp)
@@ -222,6 +242,13 @@ public class CharacterScript : MonoBehaviour
 
             isNPCHit = true;
         }
+
+        if (npc.gameObject.name == "MapChanger")
+        {
+            Debug.Log("map change true");
+
+            isMapChangerHit = true;
+        }
     }
 
     private void OnTriggerExit(Collider npc)
@@ -229,10 +256,25 @@ public class CharacterScript : MonoBehaviour
         if (npc.gameObject.name == "Barbarian shaman")
         {
             Debug.Log("npc - false");
-            Quest1.SetActive(false);
+            QuestCompleted.SetActive(false);
+            QuestNotCompleted.SetActive(false);
+            QuestWarning.SetActive(false);
 
             isNPCHit = false;
         }
+        
+        if (npc.gameObject.name == "MapChanger")
+        {
+            Debug.Log("map change false");
+
+            isMapChangerHit = true;
+            ChangeMap.SetActive(false);
+        }
+    }
+
+    public void SetChangeMap()
+    {
+        ChangeMap.SetActive(false);
     }
 
     public void GoToBossRoom()
@@ -256,16 +298,22 @@ public class CharacterScript : MonoBehaviour
         {
             attackBuff++;
             attack += 5;
+            AttackBuff.SetActive(true);
+            AttackBuff.GetComponent<Text>().text = "+" + attackBuff;
         }
         else if (buff == 2)
         {
             speedBuff++;
             GetComponent<PlayerMove>().maxVerticalSpeed += 5;
+            MovementSpeedBuff.SetActive(true);
+            MovementSpeedBuff.GetComponent<Text>().text = "+" + speedBuff;
         }
         else if (buff == 3)
         {
             defenceBuff++;
             defence += 5;
+            DefenceBuff.SetActive(true);
+            DefenceBuff.GetComponent<Text>().text = "+" + defenceBuff;
         }
     }
 }

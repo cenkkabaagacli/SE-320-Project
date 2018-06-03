@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     private float SkillActivation = 0;
     public float SkillTimeReadyAsSeconds;
     private float WalkAnimationSpeed;
+    public GameObject CoolDown;
 	
 
     //private Vector3 currentLocation;
@@ -40,7 +41,7 @@ public class PlayerMove : MonoBehaviour
         float upSpeed = Input.GetAxis("Vertical");
 
         SkillTimeReadyAsSeconds = SkillActivation - Time.time;
-
+        
         transform.Translate(0, 0, maxVerticalSpeed * upSpeed * Time.deltaTime);
         transform.Rotate(0, maxHorizontalSpeed * rightSpeed * Time.deltaTime, 0);
         
@@ -68,8 +69,16 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && SkillTimeReadyAsSeconds < 0)
         {
             gameObject.GetComponent<Animation> ().Play ("skill");
+            StartCoroutine(CoolDownUI());
             SkillActivation = Time.time + SkillCoolDown;
         }
+    }
+
+    IEnumerator CoolDownUI()
+    {
+        CoolDown.SetActive(true);
+        yield return new WaitForSeconds(SkillCoolDown);
+        CoolDown.SetActive(false);
     }
 
     void OnTriggerStay(Collider other)

@@ -19,7 +19,6 @@ public class GoblinScript : MonoBehaviour {
 	private bool doNotAttack = false;
 	private Vector3 startPosition;
 
-
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -90,8 +89,13 @@ public class GoblinScript : MonoBehaviour {
         if (health <= 0)
         {
             isdead = true;
-			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(expValue);
-
+			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript>().SetExp(expValue);
+	        
+	        if (GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().GoblinQuest == true && 
+	            GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().GoblinCounter < 15)
+	        {
+		        GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().GoblinCounter++;
+	        }
         }
     }
 	

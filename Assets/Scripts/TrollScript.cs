@@ -16,11 +16,9 @@ public class TrollScript : MonoBehaviour
     public int health = 500;
 	public int expValue = 80;
 	private int respawnCounter = 1;
-    public GameObject Win;
-    public GameObject endGameSound;
-    public GameObject mapSound;
 	private bool doNotAttack = false;
 	private Vector3 startPosition;
+	public GameObject MapChanger;
 
 
 
@@ -100,9 +98,7 @@ public class TrollScript : MonoBehaviour
         {
             isdead = true;
 			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(expValue);
-            Win.SetActive(true);
-            endGameSound.SetActive(true);
-            mapSound.SetActive(false);
+	        MapChanger.SetActive(true);
         }
     }
 	

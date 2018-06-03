@@ -19,10 +19,6 @@ public class HobgoblinScript : MonoBehaviour {
 	private bool doNotAttack = false;
 	private Vector3 startPosition;
 
-	
-	
-
-
     // Use this for initialization
     void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -97,6 +93,12 @@ public class HobgoblinScript : MonoBehaviour {
 	        health = 0;
             isdead = true;
 			GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(expValue);
+	        
+	        if (GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().HobgoblinQuest == true && 
+	            GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().HobgoblinCounter < 7)
+	        {
+		        GameObject.Find("Barbarian shaman").GetComponent<QuestScript>().HobgoblinCounter++;
+	        }
         }
     }
 

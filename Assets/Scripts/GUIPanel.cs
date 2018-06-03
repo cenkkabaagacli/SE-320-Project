@@ -18,7 +18,9 @@ public class GUIPanel : MonoBehaviour {
     public GameObject AttackButton;
     public GameObject DefenceButton;
     public GameObject MovementSpeedButton;
-    public GameObject Quest1;
+    public GameObject QuestWarning;
+    public GameObject QuestNotCompleted;
+    public GameObject QuestCompleted;
 
     // Update is called once per frame
     void Update ()
@@ -62,9 +64,17 @@ public class GUIPanel : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Quest1.activeInHierarchy == true)
+            if (QuestWarning.activeInHierarchy == true)
             {
-                Quest1.SetActive(false);
+                QuestWarning.SetActive(false);
+            }
+            else if (QuestNotCompleted.activeInHierarchy == true)
+            {
+                QuestNotCompleted.SetActive(false);
+            }
+            else if (QuestCompleted.activeInHierarchy == true)
+            {
+                QuestCompleted.SetActive(false);
             }
             else
             {
