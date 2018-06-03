@@ -121,6 +121,7 @@ public class TrollScript : MonoBehaviour
 			}
 
 			isdead = false;
+			MapChanger.SetActive(false);
 		} 
 	}
 }
