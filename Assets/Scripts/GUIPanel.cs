@@ -21,6 +21,7 @@ public class GUIPanel : MonoBehaviour {
     public GameObject QuestWarning;
     public GameObject QuestNotCompleted;
     public GameObject QuestCompleted;
+    public GameObject ChangeMap;
 
     // Update is called once per frame
     void Update ()
@@ -75,6 +76,10 @@ public class GUIPanel : MonoBehaviour {
             else if (QuestCompleted.activeInHierarchy == true)
             {
                 QuestCompleted.SetActive(false);
+            }
+            else if (ChangeMap.activeInHierarchy == true)
+            {
+                ChangeMap.SetActive(false);
             }
             else
             {

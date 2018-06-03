@@ -79,8 +79,14 @@ public class QuestScript : MonoBehaviour
 	public void CompleteQuest()
 	{
 		QuestIsAccepted = false;
-		QuestIsCompleted = true;
+		QuestIsCompleted = false;
 		QuestCompleted.SetActive(false);
+		GoblinQuest.SetActive(false);
+		HobgoblinQuest.SetActive(false);
+		WolfQuest.SetActive(false);
+		GoblinCounter = 0;
+		HobgoblinCounter = 0;
+		WolfCounter = 0;
 		GameObject.Find("Barbarian mage").GetComponent<CharacterScript>().GiveRandomBuff();
 	}
 

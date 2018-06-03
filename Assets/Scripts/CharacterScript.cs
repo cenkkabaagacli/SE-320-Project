@@ -279,9 +279,12 @@ public class CharacterScript : MonoBehaviour
 
     public void GoToBossRoom()
     {
+        ChangeMap.SetActive(false);
+        isMapChangerHit = false;
         GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = false;
         transform.position= new Vector3(1060,0,110);
         GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = true;
+        GameObject.Find("MapChanger").SetActive(false);   
     }
 
     public void GoBackToStartingMap()
