@@ -91,6 +91,10 @@ public class GUIPanel : MonoBehaviour {
     // Use to change scene
     public void ChangeSceen(string scenename)
     {
+        if (GameObject.Find("EndGame").activeInHierarchy == true)
+        {
+            GameObject.Find("EndGame").SetActive(false);
+        }
         //Application.LoadLevel(scenename);
         SceneManager.LoadScene(scenename, LoadSceneMode.Single);
     }

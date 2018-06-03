@@ -267,7 +267,7 @@ public class CharacterScript : MonoBehaviour
         {
             Debug.Log("map change false");
 
-            isMapChangerHit = true;
+            isMapChangerHit = false;
             ChangeMap.SetActive(false);
         }
     }
@@ -289,6 +289,7 @@ public class CharacterScript : MonoBehaviour
 
     public void GoBackToStartingMap()
     {
+        GameObject.Find("EndGame").SetActive(false);
         GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = false;
         transform.position= new Vector3(19,0,9);
         GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = true;
