@@ -12,7 +12,7 @@ public class BossScript : MonoBehaviour {
     public bool isdead = false;
     public bool isattacking = false;
     public bool isMoving = false;
-    public int attack = 60;
+    public int attack = 80;
     public int health = 1000;
     public int expValue = 400;
     private int respawnCounter = 1;
@@ -67,13 +67,13 @@ public class BossScript : MonoBehaviour {
             {
                 if (isMoving)
                 {
-                    if ((GameObject.Find("Barbarian mage").transform.position - transform.position).magnitude > 15)
+                    if ((GameObject.Find("Barbarian mage").transform.position - transform.position).magnitude > 12)
                     {
                         isattacking = false;
                         goto skip;
                     }
 
-                    if ((transform.position - agent.destination).magnitude < 15)
+                    if ((transform.position - agent.destination).magnitude < 12)
                     {
                         isattacking = true;
                     }
