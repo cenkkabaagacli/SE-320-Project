@@ -16,7 +16,6 @@ public class BossScript : MonoBehaviour {
     public int health = 1000;
     public int expValue = 400;
     private int respawnCounter = 1;
-    public GameObject Win;
     public GameObject endGameSound;
     public GameObject mapSound;
     public GameObject EndGame;
@@ -110,7 +109,6 @@ public class BossScript : MonoBehaviour {
         {
             isdead = true;
             GameObject.Find ("Barbarian mage").GetComponent<CharacterScript> ().SetExp(expValue);
-            Win.SetActive(true);
             endGameSound.SetActive(true);
             mapSound.SetActive(false);
             EndGame.SetActive(true);
